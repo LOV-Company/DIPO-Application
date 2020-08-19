@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1075769711893",
+    "firebase_url": "https://dipo-b57e0.firebaseio.com",
+    "project_id": "dipo-b57e0",
+    "storage_bucket": "dipo-b57e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075769711893:android:d80c4530409f5191301d1c",
+        "android_client_info": {
+          "package_name": "com.lov.dipo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075769711893-p1bje5pqs5oijbc61dklc5cehq2d6irt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaui53aD5ha8Mu6IXsdDYOuPttIppCrKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1075769711893-p1bje5pqs5oijbc61dklc5cehq2d6irt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
