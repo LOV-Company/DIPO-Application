@@ -7,39 +7,45 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/backProfile"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:background="#00000000"
-        android:textSize="23sp"
-        android:textColor="#18D26E"
-        android:text="X" />
+<!--    <ImageView-->
+<!--        android:id="@+id/backToLogin"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:layout_marginLeft="15dp"-->
+<!--        android:src="@drawable/ic_back_green" />-->
 
-    <FrameLayout
-        android:id="@+id/imageView2"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+<!--    <FrameLayout-->
+<!--        android:id="@+id/imageView2"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:layout_gravity="center">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/ava_login" />-->
+<!--        <View-->
+<!--            android:layout_width="10dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="#18D26E"/>-->
+<!--        <View-->
+<!--            android:layout_width="10dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="#18D26E"-->
+<!--            android:layout_gravity="right"/>-->
+
+<!--    </FrameLayout>-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:layout_gravity="center">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ava_login" />
-        <View
-            android:layout_width="10dp"
-            android:layout_height="match_parent"
-            android:background="#18D26E"/>
-        <View
-            android:layout_width="10dp"
-            android:layout_height="match_parent"
-            android:background="#18D26E"
-            android:layout_gravity="right"/>
-
-    </FrameLayout>
+        android:layout_gravity="center"
+        android:text="Registrasi Now"
+        android:textColor="#000000"
+        android:textSize="25sp"/>
 
     <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -78,7 +84,6 @@
                 android:src="@drawable/ic_user_green"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/username_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:counterTextAppearance="@style/TextAppearance.AppCompat"
@@ -94,10 +99,82 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/linearLayoutEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="85dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" >
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="#ffffff"
+                android:src="@drawable/ic_email_green"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" >
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="#ffffff"
+                android:src="@drawable/ic_call_green"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="No Telepon"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="215dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="#ffffff"
@@ -131,77 +208,17 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/tombol_login"
+            android:id="@+id/tombol_register"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="295dp"
+            android:layout_marginBottom="25dp"
             android:background="#18D26E"
-            android:text="Login"
+            android:text="Submit"
             android:textColor="#ffffff"
             android:textSize="20sp"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="210dp"
-            android:layout_marginLeft="22dp"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="110dp"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"
-                android:layout_marginTop="20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="OR"
-                android:textSize="18sp"/>
-
-            <View
-                android:layout_width="110dp"
-                android:layout_height="2dp"
-                android:background="@android:color/darker_gray"
-                android:layout_marginTop="20dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/login_google"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="260dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="20dp"
-            android:padding="10dp"
-            android:background="@drawable/bg_shadow"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="50dp"
-                android:background="#ffffff"
-                android:src="@drawable/google"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Login With Google"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -216,17 +233,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Don't Have Account ?"
+            android:text="Have Account ?"
             android:textColor="#000000"
             android:textSize="15sp"/>
 
         <Button
-            android:id="@+id/moveToRegister"
+            android:id="@+id/moveToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="#00000000"
-            android:text=" Register Here"
+            android:text=" Login Here"
             android:textColor="#18D26E"
             android:textSize="15sp"
             android:textAllCaps="false" />
@@ -234,4 +251,3 @@
     </LinearLayout>
 
 </LinearLayout>
-
