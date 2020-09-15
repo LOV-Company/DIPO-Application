@@ -3,13 +3,24 @@ package com.lov.dipo;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.lov.dipo.adapter.PropertyAdapter;
+import com.lov.dipo.data.PropertyData;
+import com.lov.dipo.model.Property;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView rv_properties;
+    private ArrayList<Property> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
