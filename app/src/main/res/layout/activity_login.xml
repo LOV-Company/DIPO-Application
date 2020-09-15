@@ -8,16 +8,13 @@
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-    <Button
+    <ImageView
         android:id="@+id/backProfile"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
-        android:background="#00000000"
-        android:textSize="23sp"
-        android:textColor="#18D26E"
-        android:text="X" />
+        android:src="@drawable/ic_back_green" />
 
     <FrameLayout
         android:id="@+id/imageView2"

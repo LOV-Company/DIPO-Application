@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ import com.lov.dipo.ui.profile.ProfileFragment;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
-    Button btnBackProfile;
+    ImageView btnBackProfile;
     Button btnToRegister;
     EditText etEmail;
     EditText etPassword;
@@ -40,7 +41,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//        getSupportActionBar().hide();
+        getSupportActionBar().hide();
 
         findViews();
         initViews();
@@ -53,7 +54,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     public void findViews() {
-        btnBackProfile = (Button) findViewById(R.id.backProfile);
+        btnBackProfile = (ImageView) findViewById(R.id.backProfile);
         btnToRegister = (Button) findViewById(R.id.login_btn_to_register);
         etEmail = (EditText) findViewById(R.id.login_et_email);
         etPassword = (EditText) findViewById(R.id.login_et_password);
