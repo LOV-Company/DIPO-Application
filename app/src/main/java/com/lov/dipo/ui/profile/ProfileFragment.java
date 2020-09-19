@@ -25,14 +25,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         profileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
-//        Button button = (Button) root.findViewById(R.id.moveLogin);
-//        button.setOnClickListener(this);
+        Button button = (Button) root.findViewById(R.id.moveLogin);
+        button.setOnClickListener(this);
         return root;
     }
 
     @Override
     public void onClick(View v) {
-//        Intent intent = new Intent(getActivity(), LoginActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
     }
 }

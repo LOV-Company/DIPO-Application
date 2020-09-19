@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailPropertyActivity"></activity>
+        <activity android:name=".FormRentProperty"></activity>
+        <activity android:name=".FormSaleProperty" />
+        <activity android:name=".StatusProperty" />
+        <activity android:name=".DetailPropertyActivity" />
         <activity android:name=".BeliPaket" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
