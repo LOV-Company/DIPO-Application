@@ -137,6 +137,23 @@ public class FormSaleProperty extends AppCompatActivity {
         // attaching data adapter to spinner
         spinner_air.setAdapter(dataAdapter5);
 
+        // Spinner Jenis Property
+        Spinner spinner_jenis_proeprty = (Spinner) findViewById(R.id.spinner_jenis_property);
+        // Spinner Drop down elements
+        List<String> jenis_property = new ArrayList<String>();
+        jenis_property.add("Pilih Jenis Property");
+        jenis_property.add("Apartemen");
+        jenis_property.add("Kontrakan");
+        jenis_property.add("Rumah");
+        jenis_property.add("Tanah");
+        jenis_property.add("Ruko");
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter6 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, jenis_property);
+        // Drop down layout style - list view with radio button
+        dataAdapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // attaching data adapter to spinner
+        spinner_jenis_proeprty.setAdapter(dataAdapter6);
+
     }
 
     private void pickImageFromGallery() {

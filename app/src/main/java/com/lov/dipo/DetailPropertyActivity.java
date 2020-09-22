@@ -13,7 +13,7 @@ public class DetailPropertyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_property);
 
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("");
+            getSupportActionBar().setTitle("Detail Property");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }

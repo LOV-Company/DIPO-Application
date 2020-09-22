@@ -14,8 +14,8 @@
     <fragment
         android:id="@+id/navigation_sell"
         android:name="com.lov.dipo.ui.sell.SellFragment"
-        android:label="@string/title_sell"
-        tools:layout="@layout/fragment_sell" />
+        android:label="@string/title_publish"
+        tools:layout="@layout/fragment_publish" />
 
     <fragment
         android:id="@+id/navigation_whislist"
@@ -27,6 +27,6 @@
         android:id="@+id/navigation_profile"
         android:name="com.lov.dipo.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_sell" />
+        tools:layout="@layout/fragment_profile" />
 
 </navigation>
