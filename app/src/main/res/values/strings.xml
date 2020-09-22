@@ -4,4 +4,5 @@
     <string name="title_whislist">Whislist</string>
     <string name="title_sell">Sell</string>
     <string name="title_profile">Profile</string>
+    <string name="spinner_title">prompt</string>
 </resources>

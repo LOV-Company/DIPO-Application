@@ -1,9 +1,419 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormSaleProperty">
+    tools:context=".FormSaleProperty"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="#ffff"
+            app:cardCornerRadius="15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_judul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                    <EditText
+                        android:id="@+id/et_judul"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Judul"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_harga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/input_judul"
+                    android:layout_marginTop="10dp"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                    <EditText
+                        android:id="@+id/et_harga"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:hint="Harga"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/input_harga"
+                    android:layout_marginTop="10dp"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                    <EditText
+                        android:id="@+id/et_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Alamat"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/input_luas_tanah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/input_alamat"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                        <EditText
+                            android:id="@+id/et_luas_tanah"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:hint="Luas Tanah"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="25dp"
+                        android:text="m²"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/input_luas_bangunan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/input_luas_tanah"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                        <EditText
+                            android:id="@+id/et_luas_bangunan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:hint="Luas Bangunan"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="25dp"
+                        android:text="m²"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/input_listrik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/input_luas_bangunan"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="10dp"
+                        app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                        <EditText
+                            android:id="@+id/et_listrik"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            android:hint="Listrik"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="Watt"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_kamar_tidur"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/input_listrik"
+                    android:layout_marginTop="10dp"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                    <EditText
+                        android:id="@+id/et_kamar_tidur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Jumlah Kamar Tidur"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_kamar_mandi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/input_kamar_tidur"
+                    android:layout_marginTop="10dp"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                    <EditText
+                        android:id="@+id/et_kamar_mandi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Jumlah Kamar Mandi"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_lantai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/input_kamar_mandi"
+                    android:layout_marginTop="10dp"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+
+                    <EditText
+                        android:id="@+id/et_lantai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Jumlah Lantai"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/label_air"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/input_lantai"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Air"
+                    android:textSize="17sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_air"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/label_air"/>
+
+                <TextView
+                    android:id="@+id/label_sertifikat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spinner_air"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Sertifikat"
+                    android:textSize="17sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_sertfifikat"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/label_sertifikat"/>
+
+                <TextView
+                    android:id="@+id/label_hadap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spinner_sertfifikat"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Hadap"
+                    android:textSize="17sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_hadap"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/label_hadap" />
+
+                <TextView
+                    android:id="@+id/label_kondisi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spinner_hadap"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Kondisi"
+                    android:textSize="17sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_kondisi"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/label_kondisi" />
+
+                <TextView
+                    android:id="@+id/label_keamanan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spinner_kondisi"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Keamanan"
+                    android:textSize="17sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_keamanan"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/label_keamanan"/>
+
+                <TextView
+                    android:id="@+id/label_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spinner_keamanan"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Image"
+                    android:textSize="17sp" />
+
+                <LinearLayout
+                    android:id="@+id/input_img1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/label_img"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_image"/>
+
+                        <Button
+                            android:id="@+id/btn_img1"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:padding="5dp"
+                            android:text="choose image"
+                            android:textColor="#ffff"
+                            android:textSize="10sp"
+                            android:background="@color/colorPrimary"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/input_img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/input_img1"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_image"/>
+
+                        <Button
+                            android:id="@+id/btn_img2"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:padding="5dp"
+                            android:text="choose image"
+                            android:textColor="#ffff"
+                            android:textSize="10sp"
+                            android:background="@color/colorPrimary"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_below="@id/input_img2"
+                    android:text="Publish Property"
+                    android:textColor="#ffff"
+                    android:background="@color/colorPrimary"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</ScrollView>
