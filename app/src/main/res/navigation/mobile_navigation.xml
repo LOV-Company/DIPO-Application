@@ -12,21 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_sell"
+        android:name="com.lov.dipo.ui.sell.SellFragment"
+        android:label="@string/title_sell"
+        tools:layout="@layout/fragment_sell" />
+
+    <fragment
         android:id="@+id/navigation_whislist"
         android:name="com.lov.dipo.ui.whislist.WhislistFragment"
         android:label="@string/title_whislist"
         tools:layout="@layout/fragment_whislist" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.lov.dipo.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-
-    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.lov.dipo.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_sell" />
 
 </navigation>
