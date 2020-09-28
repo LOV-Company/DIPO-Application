@@ -18,18 +18,9 @@ public class WhislistFragment extends Fragment {
 
     private WhislistViewModel whislistViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        whislistViewModel =
-                ViewModelProviders.of(this).get(WhislistViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        whislistViewModel = ViewModelProviders.of(this).get(WhislistViewModel.class);
         View root = inflater.inflate(R.layout.fragment_whislist, container, false);
-        final TextView textView = root.findViewById(R.id.text_whislist);
-        whislistViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }
