@@ -20,6 +20,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.lov.dipo.DetailPropertyActivity;
 import com.lov.dipo.LoginActivity;
 import com.lov.dipo.R;
@@ -33,6 +36,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
 //    private RecyclerView rv_properties;
 //    private ArrayList<Property> list = new ArrayList<>();
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -45,6 +50,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 //        rv_properties.setLayoutManager(new LinearLayoutManager(root.getContext()));
 //        PropertyAdapter propertyAdapter = new PropertyAdapter(list);
 //        rv_properties.setAdapter(propertyAdapter);
+
+//        Script untuk Set displayName
+//        firebaseAuth = firebaseAuth.getInstance();
+//        firebaseUser = firebaseAuth.getCurrentUser();
+//
+//        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//                .setDisplayName("Fadillah").build();
+//
+//        firebaseUser.updateProfile(profileUpdates);
         return root;
     }
 

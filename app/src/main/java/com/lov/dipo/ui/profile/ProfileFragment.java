@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +24,7 @@ import com.lov.dipo.R;
 import com.lov.dipo.SplashScreen;
 import com.lov.dipo.ui.home.HomeFragment;
 
-public class ProfileFragment extends Fragment implements View.OnClickListener {
+public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
 
@@ -30,7 +32,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     FirebaseUser firebaseUser;
 
     TextView tvName;
-    Button button;
+    Button btnToLogin;
+    LinearLayout profileAfterLogin;
+    LinearLayout profileBeforeLogin;
+    LinearLayout btnLogout;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         profileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
@@ -40,30 +45,39 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         firebaseAuth = firebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
-        button = (Button) root.findViewById(R.id.moveLogin);
-        button.setOnClickListener(this);
+        btnToLogin = (Button) root.findViewById(R.id.moveLogin);
 
         tvName = (TextView) root.findViewById(R.id.tv_name);
+        profileAfterLogin = (LinearLayout) root.findViewById(R.id.profile_after_login);
+        profileBeforeLogin = (LinearLayout) root.findViewById(R.id.profile_before_login);
+
+        btnLogout = (LinearLayout) root.findViewById(R.id.profile_btn_logout);
+
+
+        btnToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toLogin();
+            }
+        });
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+            }
+        });
+
 
         if(firebaseUser != null){
-            button.setText("Logout");
             tvName.setText(firebaseUser.getDisplayName());
+            profileAfterLogin.setVisibility(View.VISIBLE);
+            profileBeforeLogin.setVisibility(View.GONE);
         }else{
-            button.setText("Login");
-            tvName.setText("Maaf Anda Belum Login");
+            profileBeforeLogin.setVisibility(View.VISIBLE);
+            profileAfterLogin.setVisibility(View.GONE);
         }
 
         return root;
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(firebaseUser != null){
-            signOut();
-        }else{
-            toLogin();
-        }
-
     }
 
     void toLogin(){
