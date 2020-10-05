@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/image"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormSaleProperty" >
+    tools:context=".FormSaleProperty">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="true"
-        android:focusableInTouchMode="true" >
+        android:focusableInTouchMode="true">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
             android:layout_marginBottom="20dp"
             android:background="#ffff"
             app:cardCornerRadius="15dp">
@@ -32,8 +32,8 @@
                     android:id="@+id/label_jenis_property"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
                     android:text="Jenis Property"
                     android:textSize="17sp" />
 
@@ -41,23 +41,24 @@
                     android:id="@+id/spinner_jenis_property"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/label_jenis_property"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/label_jenis_property"/>
+                    android:entries="@array/jenis_property" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_below="@id/spinner_jenis_property"
-                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                    android:layout_marginTop="10dp"
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                     <EditText
                         android:id="@+id/et_judul"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Judul"/>
+                        android:hint="Judul" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,15 +68,15 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/input_judul"
                     android:layout_marginTop="10dp"
-                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                     <EditText
                         android:id="@+id/et_harga"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:hint="Harga"/>
+                        android:hint="Harga"
+                        android:inputType="numberDecimal" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,14 +86,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/input_harga"
                     android:layout_marginTop="10dp"
-                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                     <EditText
                         android:id="@+id/et_alamat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Alamat"/>
+                        android:hint="Alamat" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,28 +107,28 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginTop="10dp"
-                        app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                        android:layout_weight="1"
+                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                         <EditText
                             android:id="@+id/et_luas_tanah"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:hint="Luas Tanah"/>
+                            android:hint="Luas Tanah"
+                            android:inputType="numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginRight="25dp"
                         android:text="m²"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -141,28 +142,28 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginTop="10dp"
-                        app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                        android:layout_weight="1"
+                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                         <EditText
                             android:id="@+id/et_luas_bangunan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:hint="Luas Bangunan"/>
+                            android:hint="Luas Bangunan"
+                            android:inputType="numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginRight="25dp"
                         android:text="m²"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -176,28 +177,28 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginTop="10dp"
-                        app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                        android:layout_weight="1"
+                        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                         <EditText
                             android:id="@+id/et_listrik"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:hint="Listrik"/>
+                            android:hint="Listrik"
+                            android:inputType="numberDecimal" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginRight="10dp"
                         android:text="Watt"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -207,14 +208,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/input_listrik"
                     android:layout_marginTop="10dp"
-                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                     <EditText
                         android:id="@+id/et_kamar_tidur"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Jumlah Kamar Tidur"/>
+                        android:hint="Jumlah Kamar Tidur" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -224,14 +225,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/input_kamar_tidur"
                     android:layout_marginTop="10dp"
-                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                     <EditText
                         android:id="@+id/et_kamar_mandi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Jumlah Kamar Mandi"/>
+                        android:hint="Jumlah Kamar Mandi" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -241,14 +242,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/input_kamar_mandi"
                     android:layout_marginTop="10dp"
-                    app:counterTextAppearance="@style/TextAppearance.AppCompat"
-                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large">
+                    app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Large"
+                    app:counterTextAppearance="@style/TextAppearance.AppCompat">
 
                     <EditText
                         android:id="@+id/et_lantai"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Jumlah Lantai"/>
+                        android:hint="Jumlah Lantai" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -257,8 +258,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/input_lantai"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
                     android:text="Air"
                     android:textSize="17sp" />
 
@@ -266,16 +267,17 @@
                     android:id="@+id/spinner_air"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/label_air"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/label_air"/>
+                    android:entries="@array/air" />
 
                 <TextView
                     android:id="@+id/label_sertifikat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/spinner_air"
-                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
                     android:text="Sertifikat"
                     android:textSize="17sp" />
 
@@ -283,16 +285,17 @@
                     android:id="@+id/spinner_sertfifikat"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/label_sertifikat"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/label_sertifikat"/>
+                    android:entries="@array/jenis_sertifikat" />
 
                 <TextView
                     android:id="@+id/label_hadap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/spinner_sertfifikat"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="Hadap"
                     android:textSize="17sp" />
 
@@ -300,16 +303,17 @@
                     android:id="@+id/spinner_hadap"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/label_hadap"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/label_hadap" />
+                    android:entries="@array/hadap" />
 
                 <TextView
                     android:id="@+id/label_kondisi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/spinner_hadap"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="Kondisi"
                     android:textSize="17sp" />
 
@@ -317,16 +321,17 @@
                     android:id="@+id/spinner_kondisi"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/label_kondisi"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/label_kondisi" />
+                    android:entries="@array/kondisi" />
 
                 <TextView
                     android:id="@+id/label_keamanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/spinner_kondisi"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="Keamanan"
                     android:textSize="17sp" />
 
@@ -334,16 +339,17 @@
                     android:id="@+id/spinner_keamanan"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/label_keamanan"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/label_keamanan"/>
+                    android:entries="@array/keamanan" />
 
                 <TextView
                     android:id="@+id/label_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/spinner_keamanan"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="Image"
                     android:textSize="17sp" />
 
@@ -362,35 +368,36 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/img1"
+                            android:id="@+id/img_sale"
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_image"/>
+                            android:src="@drawable/ic_image" />
 
                         <Button
-                            android:id="@+id/btn_img1"
+                            android:id="@+id/btn_chooseimage"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_gravity="center"
+                            android:background="@color/colorPrimary"
                             android:padding="5dp"
                             android:text="choose image"
                             android:textColor="#ffff"
-                            android:textSize="10sp"
-                            android:background="@color/colorPrimary"/>
+                            android:textSize="10sp" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/publish_sale"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginTop="50dp"
                     android:layout_below="@id/input_img1"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/colorPrimary"
                     android:text="Publish Property"
-                    android:textColor="#ffff"
-                    android:background="@color/colorPrimary"/>
+                    android:textColor="#ffff" />
 
             </RelativeLayout>
 

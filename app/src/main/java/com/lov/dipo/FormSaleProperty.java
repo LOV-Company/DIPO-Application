@@ -1,191 +1,153 @@
 package com.lov.dipo;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class FormSaleProperty extends AppCompatActivity {
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.lov.dipo.model.Propertys;
 
-    ImageView img1;
-    Button btn_img1;
+public class FormSaleProperty extends AppCompatActivity{
 
-    private static final int IMAGE_PICK_CODE = 1000;
-    private static final int PERMISSION_CODE = 1001;
+    Spinner sp_jenis_property,sp_air,sp_sertifikat,sp_kondisi,sp_keamanan,sp_hadap;
+    EditText edt_judul,edt_harga,edt_alamat,edt_luas_tanah,edt_luas_bangunan,edt_listrik,edt_kmr_tidur,edt_kmr_mandi,edt_lantai;
+    Button publish,chooseImg;
+    ImageView img;
+
+    StorageReference mStorageref;
+    DatabaseReference databasePropertys;
+    public Uri imguri;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form_sale_property);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Form Sale Property");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        databasePropertys = FirebaseDatabase.getInstance().getReference("property");
+        mStorageref = FirebaseStorage.getInstance().getReference("Images");
 
-        img1 = findViewById(R.id.img1);
-        btn_img1 = findViewById(R.id.btn_img1);
+        edt_judul = (EditText) findViewById(R.id.et_judul);
+        edt_harga = (EditText) findViewById(R.id.et_harga);
+        edt_alamat = (EditText) findViewById(R.id.et_alamat);
+        edt_luas_tanah = (EditText) findViewById(R.id.et_luas_tanah);
+        edt_luas_bangunan = (EditText) findViewById(R.id.et_luas_bangunan);
+        edt_listrik = (EditText) findViewById(R.id.et_listrik);
+        edt_kmr_tidur = (EditText) findViewById(R.id.et_kamar_tidur);
+        edt_kmr_mandi = (EditText) findViewById(R.id.et_kamar_mandi);
+        edt_lantai = (EditText) findViewById(R.id.et_lantai);
+        sp_jenis_property = (Spinner) findViewById(R.id.spinner_jenis_property);
+        sp_air = (Spinner) findViewById(R.id.spinner_air);
+        sp_sertifikat = (Spinner) findViewById(R.id.spinner_sertfifikat);
+        sp_kondisi = (Spinner) findViewById(R.id.spinner_kondisi);
+        sp_keamanan = (Spinner) findViewById(R.id.spinner_keamanan);
+        sp_hadap = (Spinner) findViewById(R.id.spinner_hadap);
+        publish = (Button) findViewById(R.id.publish_sale);
+        chooseImg = (Button) findViewById(R.id.btn_chooseimage);
+        img = (ImageView) findViewById(R.id.img_sale);
 
-        btn_img1.setOnClickListener(new View.OnClickListener() {
+        publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // check permission
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                        //permission not granted, request it
-                        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
-                        // show pop up for permission
-                        requestPermissions(permissions, PERMISSION_CODE);
-                    }
-                    else {
-                        // permission already granted
-                        pickImageFromGallery();
-                    }
-                }
-                else {
-                    pickImageFromGallery();
-                }
+                addSale();
+                FileUpload();
             }
         });
 
-        // Spinner Sertifikat
-        Spinner spinner_sertifikat = (Spinner) findViewById(R.id.spinner_sertfifikat);
-        // Spinner Drop down elements
-        List<String> categories = new ArrayList<String>();
-        categories.add("Pilih Jenis Sertifikat");
-        categories.add("Sertifikat Hak Milik (SHM)");
-        categories.add("Sertifikat Hak Guna Bangunan (SHGB)");
-        categories.add("Sertifikat Hak Satuan Rumah Susun (SHSRS)");
-        categories.add("Sertifikat Kepemilikan Lahan Berbentuk Girik");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
-        // Drop down layout style - list view with radio button
-        dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        spinner_sertifikat.setAdapter(dataAdapter1);
-
-        // Spinner Hadap
-        Spinner spinner_hadap = (Spinner) findViewById(R.id.spinner_hadap);
-        // Spinner Drop down elements
-        List<String> hadap = new ArrayList<String>();
-        hadap.add("Pilih Hadapan Property");
-        hadap.add("Timur");
-        hadap.add("Barat");
-        hadap.add("Utara");
-        hadap.add("Selatan");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, hadap);
-        // Drop down layout style - list view with radio button
-        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        spinner_hadap.setAdapter(dataAdapter2);
-
-        // Spinner Kondisi
-        Spinner spinner_kondisi = (Spinner) findViewById(R.id.spinner_kondisi);
-        // Spinner Drop down elements
-        List<String> kondisi = new ArrayList<String>();
-        kondisi.add("Pilih Kondisi Property");
-        kondisi.add("Baru");
-        kondisi.add("Bekas");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, kondisi);
-        // Drop down layout style - list view with radio button
-        dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        spinner_kondisi.setAdapter(dataAdapter3);
-
-        // Spinner Keamanan
-        Spinner spinner_keamanan = (Spinner) findViewById(R.id.spinner_keamanan);
-        // Spinner Drop down elements
-        List<String> keamanan = new ArrayList<String>();
-        keamanan.add("Pilih Keamanan Property");
-        keamanan.add("Ada");
-        keamanan.add("Tidak Ada");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter4 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, keamanan);
-        // Drop down layout style - list view with radio button
-        dataAdapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        spinner_keamanan.setAdapter(dataAdapter4);
-
-        // Spinner Air
-        Spinner spinner_air = (Spinner) findViewById(R.id.spinner_air);
-        // Spinner Drop down elements
-        List<String> air = new ArrayList<String>();
-        air.add("Pilih Jenis Air");
-        air.add("PDAM");
-        air.add("Air Sumur");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter5 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, air);
-        // Drop down layout style - list view with radio button
-        dataAdapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        spinner_air.setAdapter(dataAdapter5);
-
-        // Spinner Jenis Property
-        Spinner spinner_jenis_proeprty = (Spinner) findViewById(R.id.spinner_jenis_property);
-        // Spinner Drop down elements
-        List<String> jenis_property = new ArrayList<String>();
-        jenis_property.add("Pilih Jenis Property");
-        jenis_property.add("Apartemen");
-        jenis_property.add("Kontrakan");
-        jenis_property.add("Rumah");
-        jenis_property.add("Tanah");
-        jenis_property.add("Ruko");
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter6 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, jenis_property);
-        // Drop down layout style - list view with radio button
-        dataAdapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        spinner_jenis_proeprty.setAdapter(dataAdapter6);
+        chooseImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Filechooser();
+            }
+        });
 
     }
 
-    private void pickImageFromGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, IMAGE_PICK_CODE);
+    private String getExtension (Uri uri){
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_CODE:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    pickImageFromGallery();
-                }
-                else {
-                    Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
-                }
+    private void addSale(){
+        String judul = edt_judul.getText().toString().trim();
+        double harga = Double.parseDouble(edt_harga.getText().toString().trim());
+        String alamat = edt_alamat.getText().toString().trim();
+        int luas_tanah = Integer.parseInt(edt_luas_tanah.getText().toString().trim());
+        int luas_bangunan = Integer.parseInt(edt_luas_bangunan.getText().toString().trim());
+        int listrik = Integer.parseInt(edt_listrik.getText().toString().trim());
+        int jml_kmr_tidur = Integer.parseInt(edt_kmr_tidur.getText().toString().trim());
+        int jml_kmr_mandi = Integer.parseInt(edt_kmr_mandi.getText().toString().trim());
+        int jml_lantai = Integer.parseInt(edt_lantai.getText().toString().trim());
+        String jenis_property = sp_jenis_property.getSelectedItem().toString();
+        String air = sp_air.getSelectedItem().toString();
+        String sertifikat = sp_sertifikat.getSelectedItem().toString();
+        String kondisi = sp_kondisi.getSelectedItem().toString();
+        String keamanan = sp_keamanan.getSelectedItem().toString();
+        String hadap = sp_hadap.getSelectedItem().toString();
+
+        if(!TextUtils.isEmpty(judul)){
+            String id = databasePropertys.push().getKey();
+
+            Propertys propertys = new Propertys(id,judul,harga,alamat,luas_tanah,luas_bangunan,listrik,jml_kmr_tidur,jml_kmr_mandi,jml_lantai,jenis_property,air,sertifikat,kondisi,keamanan,hadap);
+
+            databasePropertys.child(id).setValue(propertys);
+
+            Toast.makeText(this, "Property Sale Added", Toast.LENGTH_LONG).show();
         }
+
+    }
+    private void Filechooser(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, 1);
+    }
+    private void FileUpload(){
+        StorageReference ref = mStorageref.child(System.currentTimeMillis() + "." + getExtension(imguri));
+
+        ref.putFile(imguri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                       // Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        Toast.makeText(FormSaleProperty.this, "Image Upload Succesfully", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        // ...
+                    }
+                });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE) {
-            img1.setImageURI(data.getData());
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null){
+            imguri = data.getData();
+            img.setImageURI(imguri);
         }
-    }
-
-    @Override
-    public boolean onSupportNavigateUp(){
-        finish();
-        return true;
     }
 }

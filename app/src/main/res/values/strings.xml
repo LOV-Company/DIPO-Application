@@ -5,4 +5,39 @@
     <string name="title_publish">Publish</string>
     <string name="title_profile">Profile</string>
     <string name="spinner_title">prompt</string>
+    
+    <array name="jenis_property">
+        <item>Apartemen</item>
+        <item>Kontrakan</item>
+        <item>Rumah</item>
+        <item>Tanah</item>
+        <item>Ruko</item>
+    </array>
+    <array name="air">
+        <item>PDAM</item>
+        <item>Air Sumur</item>
+    </array>
+    <array name="jenis_sertifikat">
+        <item>Sertifikat Hak Milik (SHM)</item>
+        <item>Sertifikat Hak Guna Bangunan</item>
+        <item>Sertifikat Hak Satuan Rumah Susun</item>
+        <item>Sertifikat Kepemilikan Lahan Berbentuk Girik</item>
+    </array>
+    <array name="hadap">
+        <item>Timur</item>
+        <item>Barat</item>
+        <item>Utara</item>
+        <item>Selatan</item>
+    </array>
+    <array name="kondisi">
+        <item>Baru</item>
+        <item>Bekas</item>
+    </array>
+    <array name="keamanan">
+        <item>Ada</item>
+        <item>Tidak Ada</item>
+        <item>Rumah</item>
+        <item>Tanah</item>
+        <item>Ruko</item>
+    </array>
 </resources>
